@@ -5,11 +5,22 @@ using UnityEngine.UI;
 
 public class LoadingUIAnimation_ColorFade : MonoBehaviour
 {
-    [SerializeField] float duration = 1;
+    [SerializeField] float duration = 1f;
     [SerializeField] float radius = 100;
+    [SerializeField] GameObject loadingElement;
 
     private int count;
     private float delayUnit;
+
+    private void Start() {
+        Play();
+    }
+
+    [Button("Plus Loading Element")]
+    private void plusLoadingElement() {
+        Instantiate(loadingElement, transform);
+        Init();
+    }
 
     [Button("Init")]
     [ContextMenu("Init")]
