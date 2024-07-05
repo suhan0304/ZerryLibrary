@@ -10,6 +10,5 @@ public class LightFlickerAnimation : MonoBehaviour
     [SerializeField] private AudioSource flickerSound;
 
     // Light off flicker
-    lightImg
     
 }
