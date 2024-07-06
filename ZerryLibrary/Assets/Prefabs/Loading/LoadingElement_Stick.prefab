@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2485929112424196065}
   - component: {fileID: 1697092724950601189}
   m_Layer: 0
-  m_Name: Loading Stick Image
+  m_Name: LoadingElement_Stick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
