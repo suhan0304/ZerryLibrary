@@ -1786,6 +1786,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 684434259}
+  - component: {fileID: 684434260}
   m_Layer: 0
   m_Name: Multi Text Transitions with Slide Animation
   m_TagString: Untagged
@@ -1809,6 +1810,25 @@ Transform:
   - {fileID: 26575232}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &684434260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684434258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55c005ea30695a143b21755057797dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textCGs:
+  - {fileID: 1949396380}
+  - {fileID: 1247987400}
+  - {fileID: 1752397044}
+  slideYAmount: 30
+  sildeDuration: 1
+  waitDelayToHide: 0
 --- !u!1 &773104565
 GameObject:
   m_ObjectHideFlags: 0
@@ -2828,8 +2848,9 @@ GameObject:
   - component: {fileID: 1247987397}
   - component: {fileID: 1247987399}
   - component: {fileID: 1247987398}
+  - component: {fileID: 1247987400}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Text (TMP)_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2884,8 +2905,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294926665
+  m_fontColor: {r: 0.28773582, g: 0.3803136, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2952,6 +2973,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247987396}
   m_CullTransparentMesh: 1
+--- !u!225 &1247987400
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247987396}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1305450623
 GameObject:
   m_ObjectHideFlags: 0
@@ -4154,8 +4187,9 @@ GameObject:
   - component: {fileID: 1752397041}
   - component: {fileID: 1752397043}
   - component: {fileID: 1752397042}
+  - component: {fileID: 1752397044}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Text (TMP)_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4210,8 +4244,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294926665
+  m_fontColor: {r: 0.28773582, g: 0.3803136, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4278,6 +4312,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752397040}
   m_CullTransparentMesh: 1
+--- !u!225 &1752397044
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752397040}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1836171970
 GameObject:
   m_ObjectHideFlags: 0
@@ -4439,8 +4485,9 @@ GameObject:
   - component: {fileID: 1949396377}
   - component: {fileID: 1949396379}
   - component: {fileID: 1949396378}
+  - component: {fileID: 1949396380}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Text (TMP)_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4495,8 +4542,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294926665
+  m_fontColor: {r: 0.28773582, g: 0.3803136, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4563,6 +4610,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949396376}
   m_CullTransparentMesh: 1
+--- !u!225 &1949396380
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949396376}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1957392478
 GameObject:
   m_ObjectHideFlags: 0
