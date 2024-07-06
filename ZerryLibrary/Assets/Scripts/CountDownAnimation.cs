@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -8,7 +6,7 @@ using Sirenix.OdinInspector;
 
 public class CountDownAnimation : MonoBehaviour
 {
-    [SerializeField] TextMeshPro countDownText;
+    [SerializeField] TMP_Text countDownText;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip countAudioClip, startAudioClip;
     [SerializeField] Color numberColor;
