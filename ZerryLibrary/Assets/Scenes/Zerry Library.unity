@@ -1176,7 +1176,7 @@ MonoBehaviour:
   countAudioClip: {fileID: 8300000, guid: 1753d4f5e47fba84e93e1cd71df0d939, type: 3}
   startAudioClip: {fileID: 8300000, guid: 1753d4f5e47fba84e93e1cd71df0d939, type: 3}
   numberColor: {r: 0, g: 0, b: 0, a: 1}
-  startColor: {r: 1, g: 0, b: 0, a: 1}
+  startColor: {r: 1, g: 0.5801887, b: 0.5801887, a: 1}
 --- !u!4 &367610799
 Transform:
   m_ObjectHideFlags: 0
@@ -1887,7 +1887,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ab9e41c107a8634e8eaa6505d832598, type: 2}
   m_sharedMaterial: {fileID: -8958860386844480266, guid: 0ab9e41c107a8634e8eaa6505d832598,
