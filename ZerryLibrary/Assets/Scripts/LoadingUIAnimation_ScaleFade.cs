@@ -1,6 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using Sirenix.OdinInspector;
+using UnityEngine.UI;
 
 public class LoadingUIAnimation_ScaleFade : MonoBehaviour
 {
@@ -41,8 +42,8 @@ public class LoadingUIAnimation_ScaleFade : MonoBehaviour
             float delay = 0;
             foreach (Transform child in transform)
             {
-                child.GetComponent<Image>().DOFade(0, 0);
-                child.GetComponent<Image>().DOFade(0, duration).From(1, false)
+                child.DOScale(0, 0);
+                child.DOScale(0, duration).From(1, true)
                 .SetDelay(delay)
                 .SetLoops(-1, LoopType.Restart)
                 .SetEase(Ease.Linear)
