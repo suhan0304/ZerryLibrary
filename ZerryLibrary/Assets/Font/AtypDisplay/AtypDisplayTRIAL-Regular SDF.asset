@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: AtypDisplayTRIAL-Regular SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: 1244307138
   material: {fileID: 1351928593520698304}
-  materialHashCode: 0
+  materialHashCode: 1720424610
   m_Version: 1.1.0
   m_SourceFontFileGUID: 5e486541bfdcf004c9c75517ff38629b
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 5e486541bfdcf004c9c75517ff38629b,
@@ -1914,11 +1914,11 @@ MonoBehaviour:
     italicTypeface: {fileID: 0}
   - regularTypeface: {fileID: 0}
     italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 11400000, guid: db2e171e86217e74da5f82d353aa20bb, type: 2}
     italicTypeface: {fileID: 0}
   - regularTypeface: {fileID: 0}
     italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 11400000, guid: 532f57e6b7814d44384c7349fc583344, type: 2}
     italicTypeface: {fileID: 0}
   - regularTypeface: {fileID: 0}
     italicTypeface: {fileID: 0}
