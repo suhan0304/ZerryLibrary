@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -17,6 +18,41 @@ public class PlayerMovementController : MonoBehaviour
     private Vector3 _moveTarget = Vector3.zero;
     private Vector3 _direction = Vector3.zero;
     private Quaternion _lookRotation = Quaternion.identity;
+
+    public float _walkSpeed = 2.5f;
+    public float _runSpeed = 4f;
+
+    private MovementStates _currenntMovement;
+    public MovementStates CurrentMovement
+    {
+        get => _currenntMovement;
+        set
+        {
+            switch (value) 
+            {
+                case MovementStates.Walk :
+                    _agent.speed = 2.5f;
+                    AnimationController.Instance.CurrentState = MovementStates.Walk;
+                    break;
+                
+                case MovementStates.Run :
+                    _agent.speed = 4f;
+                    AnimationController.Instance.CurrentState = MovementStates.Run;
+                    break;
+                
+                case MovementStates.None :
+                    AnimationController.Instance.CurrentState = MovementStates.None;
+                    break;
+                
+            }
+        }
+    }
+
+    private void StopNavigation() {
+        _agent.SetDestination(transform.position);
+        CurrentMovement = MovementStates.None;
+        AnimationController.Instance.CurrentState = CurrentMovement;
+    }
 
     void Start() {
         _inputMapping.Default.Walk.performed += Walk;
