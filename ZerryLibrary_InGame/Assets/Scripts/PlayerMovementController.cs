@@ -88,12 +88,18 @@ public class PlayerMovementController : MonoBehaviour
         AnimationController.Instance.CurrentState = CurrentMovement;
     }
 
+    public ParticleSystem WalkDecal;
+
     private void Walk(CallbackContext context) {
         Ray ray = _camera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
         if (Physics.Raycast(ray, out RaycastHit hit, 50f)) {
             if (NavMesh.SamplePosition(hit.point, out NavMeshHit navPos, .25f, 1 << 0)) {
                 _moveTarget = navPos.position;
+
+                WalkDecal.transform.position = _moveTarget.WithNewY(0.1f);
+                WalkDecal.Play();
+
                 _direction = (_moveTarget.WithNewY(0) - transform.position).normalized;
                 _lookRotation = Quaternion.LookRotation(_direction);
                 _needToRotate = true;
