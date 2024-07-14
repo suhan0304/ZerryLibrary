@@ -83,7 +83,8 @@ public class PlayerMovementController : MonoBehaviour
     private void OnDisable() => _inputMapping.Disable();
 
     private void Run(CallbackContext context) {
-        Debug.Log("Run");
+        CurrentMovement = MovementStates.Run;
+        AnimationController.Instance.CurrentState = CurrentMovement;
     }
 
     private void Walk(CallbackContext context) {
