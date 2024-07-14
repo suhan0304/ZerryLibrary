@@ -22,29 +22,28 @@ public class PlayerMovementController : MonoBehaviour
     public float _walkSpeed = 2.5f;
     public float _runSpeed = 4f;
 
-    private MovementStates _currenntMovement;
+    private MovementStates _currentMovement;
     public MovementStates CurrentMovement
     {
-        get => _currenntMovement;
+        get => _currentMovement;
         set
         {
-            switch (value) 
+            switch (value)
             {
-                case MovementStates.Walk :
+                case MovementStates.Walk:
                     _agent.speed = 2.5f;
                     AnimationController.Instance.CurrentState = MovementStates.Walk;
                     break;
-                
-                case MovementStates.Run :
+                case MovementStates.Run:
                     _agent.speed = 4f;
                     AnimationController.Instance.CurrentState = MovementStates.Run;
                     break;
-                
-                case MovementStates.None :
+                case MovementStates.None:
                     AnimationController.Instance.CurrentState = MovementStates.None;
                     break;
-                
             }
+
+            _currentMovement = value;
         }
     }
 
@@ -62,11 +61,18 @@ public class PlayerMovementController : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
     }
 
+    public bool IsNavigating => _agent.pathPending || _agent.remainingDistance > .25f;
     private void Update() {
-        if (_needToRotate) {
-            transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * _rotateSpeed);
+        if (!_needToRotate && !IsNavigating && _currentMovement != MovementStates.None) {
+            StopNavigation();
+        }
+        else if (_needToRotate) {
+            transform.rotation = Quaternion.Slerp(transform.rotation, 
+                _lookRotation, Time.deltaTime * _rotateSpeed);
 
-            if (Vector3.Dot(_direction, transform.forward) >= .97) {
+            if (Vector3.Dot(_direction, transform.forward) >= .99f) {
+            _agent.SetDestination(_moveTarget);
+            AnimationController.Instance.CurrentState = CurrentMovement;
                 _needToRotate = false;
             }
         }
@@ -89,8 +95,15 @@ public class PlayerMovementController : MonoBehaviour
                 _direction = (_moveTarget.WithNewY(0) - transform.position).normalized;
                 _lookRotation = Quaternion.LookRotation(_direction);
                 _needToRotate = true;
+
+                StopNavigation();
+
+                CurrentMovement = MovementStates.Walk;
+
+                if (IsNavigating && Vector3.Dot(_direction, transform.forward) >= 0.25f) {
+                    _agent.SetDestination(_moveTarget);
+                }
             }
         }
-
     }
 }
