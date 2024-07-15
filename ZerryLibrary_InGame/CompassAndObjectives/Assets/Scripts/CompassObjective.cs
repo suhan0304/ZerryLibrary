@@ -40,4 +40,34 @@ public class CompassObjective : MonoBehaviour
         _rectTransform.localPosition = Vector2.right *  GetObjectiveAngle(WorldGameObject) *  (CompassManager.Instance.CompassImage.rectTransform.sizeDelta.x / 2);
     }
 
+    private void Update() => ObjectiveImage.transform.localScale = Vector3.Lerp(ObjectiveImage.transform.localScale, IsCompassObjectiveActive && WorldGameObject != null ? Vector3.one : Vector3.zero, Time.deltaTime * 8);
+
+    public static float GetObjectiveAngle(Transform worldObjectiveTransform) => 
+        PlayerController.Instance == null ? -1 :             
+            Vector3.SignedAngle(PlayerController.Instance.transform.forward, 
+            GetObjectiveDirection(worldObjectiveTransform, 
+            PlayerController.Instance.transform), Vector3.up) / 180;
+
+    private static Vector3 GetObjectiveDirection(Transform objectiveTransform, 
+        Transform sourceTransform) => (new Vector3(objectiveTransform.position.x,     
+            sourceTransform.position.y, objectiveTransform.position.z) - 
+            sourceTransform.position).normalized;
+
+    public void UpdateUiIndex(int newIndex)
+    {
+        _rectTransform.SetSiblingIndex(newIndex);
+        UpdateVisibility();
+    }
+
+    private void UpdateVisibility()
+    {
+        if(PlayerController.Instance == null) 
+        { return; }
+
+        float currentDistance = Vector3.Distance(WorldGameObject.position, 
+            PlayerController.Instance.transform.position);
+
+        IsCompassObjectiveActive = currentDistance < MaxVisibilityRange && 
+            currentDistance > MinVisibilityRange;
+    }
 }
