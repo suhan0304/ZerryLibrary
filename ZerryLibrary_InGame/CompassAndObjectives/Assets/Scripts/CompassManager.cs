@@ -62,5 +62,8 @@ public class CompassManager : MonoBehaviour
         CompassImage.uvRect = new Rect(compassUvPosition, Vector2.one);
     }
 
-    
+    public void RemoveCompassObjective(CompassObjective compassObjective) {
+        _currentObjectives.Remove(compassObjective);
+        Destroy(compassObjective.gameObject);
+    }
 }
