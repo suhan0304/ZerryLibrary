@@ -1,18 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CompassManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static CompassManager Instance;
+    public RawImage CompassImage;
+
+    private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void LateUpdate() => UpdateCompassHeading();
+
+    private void UpdateCompassHeading()
     {
-        
+        if (PlayerController.Instance == null) {
+            return;
+        }
+
+        Vector2 compassUvPosition = Vector2.right * (PlayerController.Instance.transform.rotation.eulerAngles.y / 360);
+
+        CompassImage.uvRect = new Rect(compassUvPosition, Vector2.one);
     }
 }
