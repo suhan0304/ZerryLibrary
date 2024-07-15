@@ -8,8 +8,8 @@ public class CompassObjective : MonoBehaviour
     private RectTransform _rectTransform;
     public Transform WorldGameObject {get; private set;}
 
-    public const float MinVisiblityRange = 5;
-    public const float MaxVisiblityRange = 30;
+    public const float MinVisibilityRange = 5;
+    public const float MaxVisibilityRange = 30;
 
     public CompassObjective Configure(GameObject worldGameObject, Color color, Sprite sprite = null) {
         WorldGameObject = worldGameObject.transform;
