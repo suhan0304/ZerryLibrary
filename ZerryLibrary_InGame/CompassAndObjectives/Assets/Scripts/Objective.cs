@@ -7,6 +7,8 @@ public class Objective : MonoBehaviour
     [SerializeField] private Sprite _objectiveIcon;
     [SerializeField] private UnityEvent _onCompleteEvents;
 
+    private void Start() => CompassManager.Instance.AddObjectiveForObject(gameObject, _iconColor, _objectiveIcon);
+
     private void OnTriggerEnter(Collider other) {
         _onCompleteEvents.Invoke();
         Destroy(this.gameObject);
