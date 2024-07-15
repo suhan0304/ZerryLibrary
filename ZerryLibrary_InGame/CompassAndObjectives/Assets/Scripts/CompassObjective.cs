@@ -31,7 +31,14 @@ public class CompassObjective : MonoBehaviour
     private void LateUpdate() => UpdateCompassPosition();
 
     public void UpdateCompassPosition() {
-        if (WorldGameObject == null || !IsCompassObjectiveActive || CompassManager.Instance == null) {
+        if (WorldGameObject == null) {
+            if(ObjectiveImage.transform.localScale.magnitude <= .1f) {
+                CompassManager.Instance?.RemoveCompassObjective(this);
+            }
+            return;
+        }
+        
+        if (!IsCompassObjectiveActive || CompassManager.Instance == null) {
             return;
         }
 
