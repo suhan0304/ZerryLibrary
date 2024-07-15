@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CompassObjective : MonoBehaviour
 {
@@ -30,5 +31,13 @@ public class CompassObjective : MonoBehaviour
     }
 
     private void LateUpdate() => UpdateCompassPosition();
+
+    public void UpdateCompassPosition() {
+        if (WorldGameObject == null || !IsCompassObjectiveActive || CompassManager.Instance == null) {
+            return;
+        }
+
+        _rectTransform.localPosition = Vector2.right *  GetObjectiveAngle(WorldGameObject) *  (CompassManager.Instance.CompassImage.rectTransform.sizeDelta.x / 2);
+    }
 
 }
