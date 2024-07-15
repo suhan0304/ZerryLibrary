@@ -32,8 +32,9 @@ public class CompassManager : MonoBehaviour
             orderedObjectives[i].UpdateUiIndex(i);
         }
     }
-    
-    
+
+    public void AddObjectiveForObject(GameObject compassObjectiveGameObject, Color color, Sprite sprite) =>
+        _currentObjectives.Add(Instantiate(CompassObjectivePrefab, CompassObjectiveParent, false).GetComponent<CompassObjective>().Configure(compassObjectiveGameObject, color, sprite));
 
     private void Awake()
     {
