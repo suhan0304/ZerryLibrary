@@ -2510,8 +2510,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1608728059}
-  miniMultiplyer: 5.3
-  fullMultiplyer: 7
+  miniMultiplyer: 10.35
+  fullMultiplyer: 15
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
