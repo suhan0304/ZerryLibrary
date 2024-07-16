@@ -2509,6 +2509,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e47e13d957b884ba81135aab72d9c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 1608728059}
+  miniMultiplyer: 5.3
+  fullMultiplyer: 7
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

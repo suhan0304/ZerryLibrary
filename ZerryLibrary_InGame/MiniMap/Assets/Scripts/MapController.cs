@@ -15,9 +15,15 @@ public class MapController : MonoBehaviour
     public float fullMultiplyer = 7f;
     private VisualElement _playerRepresentation;
 
+    private VisualElement _mapContainer;
+    private VisualElement _mapImage;
+
     void Start() {
         _root = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("Container");
         _playerRepresentation = _root.Q<VisualElement>("Player");
+
+        _mapImage = _root.Q<VisualElement>("Image");
+        _mapContainer = _root.Q<VisualElement>("Map");
     }
 
     private void LateUpdate()
@@ -27,6 +33,26 @@ public class MapController : MonoBehaviour
             new Translate(Player.transform.position.x * multiplyer, Player.transform.position.z * -multiplyer, 0);
         _playerRepresentation.style.rotate = 
             new Rotate(new Angle(Player.transform.rotation.eulerAngles.y));
+
+
+        if (!IsMapOpen)
+        {
+            var clampWidth = _mapImage.worldBound.width / 2 - 
+                _mapContainer.worldBound.width / 2;
+            var clampHeight = _mapImage.worldBound.height / 2 - 
+                _mapContainer.worldBound.height / 2;
+
+            var xPos = Mathf.Clamp(Player.transform.position.x * -multiplyer, 
+                -clampWidth, clampWidth);
+            var yPos = Mathf.Clamp(Player.transform.position.z * multiplyer, 
+                -clampHeight, clampHeight);
+
+            _mapImage.style.translate = new Translate(xPos, yPos, 0);
+        }
+        else
+        {
+            _mapImage.style.translate = new Translate(0, 0, 0);
+        }
     }
 
     void Update() {
