@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Schema;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -17,6 +18,27 @@ public class MapController : MonoBehaviour
 
     private VisualElement _mapContainer;
     private VisualElement _mapImage;
+
+    private bool _mapFaded;
+    public bool MapFaded
+    {
+        get => _mapFaded;
+        set 
+        {
+            if (_mapFaded == value) {
+                return;
+            }
+
+            Color end = !_mapFaded ? Color.white.WithAlpha(.5f) : Color.white;
+
+            _mapImage.experimental.animation.Start(
+                _mapImage.style.unityBackgroundImageTintColor.value, end, 500, 
+                (elm, val) => { elm.style.unityBackgroundImageTintColor = val; }                
+            );
+
+            _mapFaded = value;
+        }
+    }
 
     void Start() {
         _root = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("Container");
@@ -53,6 +75,8 @@ public class MapController : MonoBehaviour
         {
             _mapImage.style.translate = new Translate(0, 0, 0);
         }
+
+        MapFaded = IsMapOpen && PlayerController.Instance.IsMoving;
     }
 
     void Update() {
