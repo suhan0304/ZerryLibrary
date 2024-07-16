@@ -1,4 +1,3 @@
-
 .map-img {
     height: 100%;
     width: 115%;
@@ -71,6 +70,7 @@
     -unity-background-image-tint-color: rgba(255, 255, 255, 0.29);
     align-items: center;
     justify-content: flex-end;
+    background-image: url("project://database/Assets/Sprites/playerCone.png?fileID=2800000&guid=0474f680ae98d884a8bf7ed7a1836229&type=3#playerCone");
 }
 
 .player-arrow {
@@ -78,4 +78,5 @@
     height: 10px;
     -unity-background-image-tint-color: rgb(255, 50, 73);
     top: 4px;
+    background-image: url("project://database/Assets/Sprites/player_arrow.png?fileID=2800000&guid=3e620c7728093c44e811a73f5fb61640&type=3#player_arrow");
 }
