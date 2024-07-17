@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Uss/Map.uss?fileID=7433441132597879392&amp;guid=1bcf81812feb9884ca1ff67bfbb2f429&amp;type=3#Map" />
     <ui:VisualElement name="Container" class="root-container-mini">
-        <ui:VisualElement name="Map" class="map-container" style="align-items: center; justify-content: center; width: 330px; height: 300px;">
+        <ui:VisualElement name="Map" class="map-container" style="align-items: center; justify-content: center; width: 300px; height: 300px;">
             <ui:VisualElement name="Image" focusable="false" class="map-img" style="-unity-background-scale-mode: scale-and-crop;">
                 <ui:VisualElement name="Player" class="player-container">
                     <ui:VisualElement name="Cone" class="player-cone">
